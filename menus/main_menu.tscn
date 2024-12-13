@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://i54uio8h1du6"]
+
+[ext_resource type="Script" path="res://menus/main_menu.gd" id="1_xxaup"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xxaup")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 185.0
+offset_right = 965.0
+offset_bottom = 208.0
+text = "Main menu"
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 739.0
+offset_top = 349.0
+offset_right = 1115.0
+offset_bottom = 518.0
+text = "play game"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

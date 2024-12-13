@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=4 uid="uid://cfvqgx3ii3qa6"]
+
+[ext_resource type="Script" path="res://game/map/utils/base_game_scene.gd" id="1_al7bu"]
+[ext_resource type="TileSet" uid="uid://b5u306q6fblfp" path="res://resources/tilesets/caves_tileset.tres" id="2_7pian"]
+[ext_resource type="Script" path="res://game/map/utils/scene_door.gd" id="3_26mj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snpvt"]
+size = Vector2(20, 48)
+
+[node name="World1" type="Node2D"]
+script = ExtResource("1_al7bu")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAMAAAADAAAAAAABAAMAAAAEAAAAAAACAAMAAAAFAAAAAAADAAMAAAADAAAAAAAEAAMAAAAEAAAAAAAFAAMAAAAFAAAAAAAGAAMAAAADAAAAAAAHAAMAAAAEAAAAAAAIAAMAAAAFAAAAAAAJAAMAAAADAAAAAAAKAAMAAAAEAAAAAAALAAMAAAAFAAAAAAAMAAMAAAADAAAAAAANAAMAAAAEAAAAAAAOAAMAAAAFAAAAAAAPAAMAAAADAAAAAAAQAAMAAAAEAAAAAAARAAMAAAAFAAAAAAASAAAAAAABAAAAAAASAAEAAAABAAEAAAASAAIAAAABAAIAAAAPAP//AAADAAEAAAAQAP//AAAEAAEAAAARAP//AAAFAAEAAAA=")
+tile_set = ExtResource("2_7pian")
+
+[node name="SceneDoor" type="Area2D" parent="." node_paths=PackedStringArray("spawnpoint")]
+script = ExtResource("3_26mj5")
+other_scene_path = "res://testing_scenes/world1.tscn"
+spawnpoint = NodePath("Marker2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneDoor"]
+position = Vector2(278, 24)
+shape = SubResource("RectangleShape2D_snpvt")
+
+[node name="Marker2D" type="Marker2D" parent="SceneDoor"]
+position = Vector2(241, 26)
